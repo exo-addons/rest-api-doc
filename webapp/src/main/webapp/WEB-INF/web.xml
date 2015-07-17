@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-    <display-name>rest-doc-api</display-name>
+    <display-name>rest-api-doc-webapp</display-name>
 
     <servlet>
         <servlet-name>DefaultJaxrsConfig</servlet-name>
@@ -14,11 +14,15 @@
         </init-param>
         <init-param>
             <param-name>swagger.api.title</param-name>
-            <param-value>eXo Plateform REST API</param-value>
+            <param-value>eXo Platform REST API</param-value>
+        </init-param>
+        <init-param>
+            <param-name>swagger.api.description</param-name>
+            <param-value>Calendar Documentation</param-value>
         </init-param>
         <init-param>
             <param-name>swagger.api.basepath</param-name>
-            <param-value>http://localhost:8080/rest-doc-api</param-value>
+            <param-value>http://localhost:8080/rest-api-doc-webapp</param-value>
         </init-param>
         <init-param>
             <param-name>swagger.pretty.print</param-name>
@@ -66,6 +70,10 @@
         <servlet-class>org.exoplatform.addons.restapidoc.Bootstrap</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
+    <context-param>
+        <param-name>resteasy.scan</param-name>
+        <param-value>true</param-value>
+    </context-param>
 
     <!-- <servlet>
         <servlet-name>SwaggerConfig</servlet-name>

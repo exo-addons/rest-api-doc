@@ -83,6 +83,19 @@
                 <version>2.5</version>
                 <scope>test</scope>
             </dependency>
+
+            <!-- Calendar -->
+            <dependency>
+                <groupId>org.exoplatform.calendar</groupId>
+                <artifactId>calendar-webservice</artifactId>
+                <version>4.3.x-cal-rest-api-doc-SNAPSHOT</version>
+            </dependency>
+            <!-- Social -->
+            <!--<dependency>
+                <groupId>org.exoplatform.social</groupId>
+                <artifactId>social-component-service</artifactId>
+                <version>4.3.x-soc-social-rest-api-SNAPSHOT</version>
+            </dependency>-->
         </dependencies>
 
         <build>
@@ -97,11 +110,11 @@
                         <target>1.7</target>
                     </configuration>
                 </plugin>
-                <plugin>
+                <!--<plugin>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
                     <version>9.2.10.v20150310</version>
-                </plugin>
+                </plugin>-->
             </plugins>
         </build>
 

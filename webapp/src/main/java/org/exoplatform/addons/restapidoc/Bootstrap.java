@@ -26,30 +26,37 @@ public class Bootstrap extends HttpServlet {
 	@Override
     public void init(ServletConfig config) throws ServletException {
 		//super.init(config);
-		
-		
 
-		BeanConfig beanConfig = new BeanConfig();
-        beanConfig.setVersion("1.0.0");
-        beanConfig.setBasePath("http://localhost:8080/rest/private/v1/calendar/");
-        beanConfig.setResourcePackage("io.swagger.resources");
-        beanConfig.setScan(true);
 
 		Info info = new Info()
-		.title("eXo REST API DOC")
-		.description("Here is a documentation (and a way to test) eXo Platform REST API")
-		.termsOfService("http://localhost:8080/terms/")
-		.contact(new Contact()
-		.email("tgigant@exoplatform.org"))
-		.license(new License()
-		.name("Apache 2.0")
-		.url("http://www.apache.org/licenses/LICENSE-2.0.html"));
+				.title("Calendar Rest API")
+				.description("Here is a documentation about (and a way to test) eXo Platform Calendar REST API")
+				.termsOfService("http://localhost:8080/terms/")
+				.contact(new Contact()
+						.email("tgigant@exoplatform.org"))
+				.license(new License()
+						.name("Apache 2.0")
+						.url("http://www.apache.org/licenses/LICENSE-2.0.html"));
+
+		BeanConfig beanConfig = new BeanConfig();
+		beanConfig.setVersion("1.0.0");
+		beanConfig.setTitle("Calendar Rest API");
+		beanConfig.setDescription("Here is a documentation about (and a way to test) eXo Platform Calendar REST API");
+		//beanConfig.setContact("Thibault Gigant: <a href=\"mailto:tgigant@exoplatform.com\">Send Mail</a>");
+		beanConfig.setBasePath("http://localhost:8080/rest-api-doc-webapp");
+		beanConfig.setLicense("Apache 2.0");
+		beanConfig.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
+		//beanConfig.setResourcePackage("org.exoplatform.calendar.ws,org.exoplatform.social.rest.api");
+		beanConfig.setResourcePackage("org.exoplatform.calendar.ws");
+		beanConfig.setScan(true);
+		beanConfig.setInfo(info);
+
 
 		ServletContext context = config.getServletContext();
 		Swagger swagger = new Swagger().info(info);
 		swagger.tag(new Tag()
-		.name("rest-doc-api")
-		.description("Operations about Calendar on eXo Platform")
+		.name("rest-api-doc-webapp")
+				.description("Operations about Calendar on eXo Platform")
 		.externalDocs(new ExternalDocs("Find out more about the service", "http://exoplatform.org")));
 
 		context.setAttribute("swagger", swagger);
