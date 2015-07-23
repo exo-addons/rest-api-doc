@@ -14,6 +14,7 @@ public class JacksonJsonProvider extends JacksonJaxbJsonProvider {
     private static ObjectMapper commonMapper = null;
 
     public JacksonJsonProvider() {
+        String sep = "\n##########################################################################\n";
         if(commonMapper == null){
             ObjectMapper mapper = new ObjectMapper();
 
@@ -21,6 +22,7 @@ public class JacksonJsonProvider extends JacksonJaxbJsonProvider {
 
             commonMapper = mapper;
         }
+        System.out.println(sep+"JacksonJsonProvider"+sep+commonMapper.toString()+sep);
         super.setMapper(commonMapper);
     }
 

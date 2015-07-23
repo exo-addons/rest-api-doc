@@ -2,7 +2,9 @@ package org.exoplatform.addons.restapidoc;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.jersey.listing.ApiListingResourceJSON;
+import io.swagger.jaxrs.listing.ApiListingResource;
+import io.swagger.jaxrs.listing.SwaggerSerializers;
+//import io.swagger.jersey.listing.ApiListingResourceJSON;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,8 +30,9 @@ public class SampleApplication extends Application {
         //...
 
         //resources.add(org.exoplatform.calendar.ws.CalendarRestApi.class);
-        resources.add(JacksonJsonProvider.class);
-        resources.add(ApiListingResourceJSON.class);
+        //resources.add(JacksonJsonProvider.class);
+        resources.add(ApiListingResource.class);
+        resources.add(SwaggerSerializers.class);
 
         return resources;
     }
