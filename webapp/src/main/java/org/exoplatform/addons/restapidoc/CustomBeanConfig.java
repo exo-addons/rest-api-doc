@@ -1,7 +1,8 @@
 package org.exoplatform.addons.restapidoc;
 
 import io.swagger.annotations.Api;
-import io.swagger.jaxrs.Reader;
+import io.swagger.config.ScannerFactory;
+//import io.swagger.jaxrs.Reader;
 import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.models.*;
 import org.reflections.Reflections;
@@ -20,7 +21,38 @@ import java.util.Set;
  */
 public class CustomBeanConfig extends BeanConfig {
 
-    Reader reader = new Reader(new Swagger());
+    CustomReader reader = new CustomReader(new Swagger());
+
+    @Override
+    public void setScan(boolean shouldScan) {
+        Set<Class<?>> classes = classes();
+
+        String sep = " ################## ";
+////        System.out.println(sep + "Entering setScan" + sep);
+//        for (Class<?> cls : classes) {
+////            System.out.println("Final output class: " + cls.getCanonicalName());
+//        }
+
+        if (classes != null) {
+////            System.out.println(sep + "host + basePath + info" + sep);
+////            if (getInfo() == null) System.out.println("Info null");
+////            else System.out.println("info :"+ getInfo());
+////            if (getHost() == null) System.out.println("host null");
+////            else System.out.println("host :"+ getHost());
+////            if (getBasePath() == null) System.out.println("basepath null");
+////            else System.out.println("basepath :"+ getBasePath());
+////            System.out.println(sep + "End of display" + sep);
+            reader.read(classes)
+                    .host(getHost())
+                    .basePath(getBasePath())
+                    .info(getInfo());
+//            //System.out.println(sep + "Displaying reader"+sep);
+        }
+        ScannerFactory.setScanner(this);
+//        System.out.println(sep + "Scanner set" + sep);
+//        System.out.println(sep + "Scanner ="+this);
+    }
+
 
     @Override
     public Set<Class<?>> classes() {
@@ -66,36 +98,39 @@ public class CustomBeanConfig extends BeanConfig {
 
         reader.getSwagger().setInfo(getInfo());
         final Reflections reflections = new Reflections(config);
-        System.out.println("###### URLs in config of reflections:");
+//        System.out.println("###### URLs in config of reflections:");
         for (URL url : reflections.getConfiguration().getUrls()) {
-            System.out.println(url.toString());
+//            System.out.println(url.toString());
         }
         Set<Class<?>> classes = reflections.getTypesAnnotatedWith(Api.class);
         for (Class<?> cls : classes) {
-            System.out.println("classes find with annotations with @Api annotations: " + cls.getCanonicalName());
+//            System.out.println("class found with annotations with @Api annotations: " + cls.getCanonicalName());
         }
         classes.addAll(reflections.getTypesAnnotatedWith(javax.ws.rs.Path.class));
         Set<Class<?>> output = new HashSet<Class<?>>();
         for (Class<?> cls : classes) {
-            System.out.println("classes find with annotations with @Api + @Path annotations : "+cls.getCanonicalName());
+//            System.out.println("class found with annotations with @Api + @Path annotations : "+cls.getCanonicalName());
         }
         for (Class<?> cls : classes) {
-            System.out.println("checking class: "+cls.getCanonicalName());
+//            System.out.println("checking class: "+cls.getCanonicalName());
             if (allowAllPackages) {
                 output.add(cls);
             } else {
                 for (String pkg : acceptablePackages) {
-                    System.out.println("accept pck: "+pkg);
+//                    System.out.println("accepted pkg: "+pkg);
                     if (cls.getPackage().getName().startsWith(pkg)) {
-                        System.out.println("class added: "+cls.getPackage().getName());
+//                        System.out.println("class added: "+cls.getPackage().getName());
                         output.add(cls);
                     }
                 }
             }
         }
         for (Class<?> cls : output) {
-            System.out.println("Final output class: " + cls.getCanonicalName());
+//            System.out.println("Final output class: " + cls.getCanonicalName());
         }
         return output;
     }
+
+
+
 }

@@ -1,7 +1,7 @@
 package org.exoplatform.addons.restapidoc;
 
-import io.swagger.jaxrs.config.BeanConfig;
-import io.swagger.models.*;
+//import io.swagger.jaxrs.config.BeanConfig;
+//import io.swagger.models.*;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -23,7 +23,7 @@ public class Bootstrap extends HttpServlet {
 		//super.init(config);
 
 
-		Info info = new Info()
+		/*Info info = new Info()
 				.title("Calendar Rest API")
 				.description("Here is a documentation about (and a way to test) eXo Platform Calendar REST API")
 				.termsOfService("http://localhost:8080/terms/")
@@ -31,27 +31,32 @@ public class Bootstrap extends HttpServlet {
 						.email("tgigant@exoplatform.org"))
 				.license(new License()
 						.name("Apache 2.0")
-						.url("http://www.apache.org/licenses/LICENSE-2.0.html"));
+						.url("http://www.apache.org/licenses/LICENSE-2.0.html"));*/
+        String[] schemes = new String[] {"http","https"};
 
-		BeanConfig beanConfig = new CustomBeanConfig();
+		CustomBeanConfig beanConfig = new CustomBeanConfig();
 		beanConfig.setVersion("1.0.0");
+        beanConfig.setSchemes(schemes);
 		beanConfig.setTitle("Calendar Rest API");
 		beanConfig.setDescription("Here is a documentation about (and a way to test) eXo Platform Calendar REST API");
-		beanConfig.setContact("<a href='mailto:tgigant@exoplatform.com'>Thibault Gigant</a>");
-		beanConfig.setBasePath("http://localhost:8080/");
+		//beanConfig.setContact("<a href='mailto:tgigant@exoplatform.com'>Thibault Gigant</a>");
+		beanConfig.setBasePath("/rest-api-doc-webapp");
 		beanConfig.setLicense("Apache 2.0");
 		beanConfig.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
         //beanConfig.setResourcePackage("org.exoplatform.calendar.ws,org.exoplatform.social.rest.api");
 		beanConfig.setResourcePackage("org.exoplatform");
+		//beanConfig.setHost("http://localhost:8080");
         beanConfig.setScan(true);
 
+
 		ServletContext context = config.getServletContext();
-		Swagger swagger = new Swagger().info(info);
+		/*Swagger swagger = new Swagger();//.info(info);
 		swagger.tag(new Tag()
 		.name("rest-api-doc-webapp")
 				.description("Operations about Calendar on eXo Platform")
 		.externalDocs(new ExternalDocs("Find out more about the service", "http://exoplatform.org")));
-        System.out.println("Context Path : " + context.getContextPath());
-		context.setAttribute("swagger", swagger);
+        //System.out.println("Context Path : " + context.getContextPath());
+		context.setAttribute("swagger", swagger);*/
+		context.setAttribute("swagger", beanConfig.getSwagger());
     }
 }
