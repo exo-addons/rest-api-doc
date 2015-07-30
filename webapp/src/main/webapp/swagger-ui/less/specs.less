@@ -1,8 +1,11 @@
-@import "variables";
-@import "mixins";
+@import "eXo/variables";
+@import "eXo/mixins";
+@import "eXo/buttons";
+//@import "eXo/navbar";
+
 
 .swagger-section {
-    background-image: url("../images/themes/default/wiki/texture.jpg");
+    background-image: url("../images/eXo/parttern.jpg");
 
     .swagger-ui-wrap {
 
@@ -53,7 +56,7 @@
                         padding: 5px;
                         font-size: 0.9em;
                         color: #666666;
-                        border-bottom: 1px solid #999999;
+                        border-bottom: 1px solid @grayLight;
                     }
                 }
             }
@@ -106,7 +109,15 @@
         }
 
         a {
-            color: #547f00;
+            color: #345f8f;
+            text-decoration: none;
+            font-weight: 600;
+
+            &:focus {
+                //outline: thin dotted;
+                outline: none;
+            }
+
             img {
                 border: none;
             }
@@ -152,11 +163,18 @@
         }
 
         .info_title {
-            padding-bottom: 10px;
-            font-weight: bold;
-            font-size: 25px;
-            margin: 10px 0 30px;
+            padding-bottom: (@baseLineHeight / 2);
+            //font-weight: bold;
+            //font-size: 25px;
+            //margin: 10px 0 30px;
             border-bottom: 1px solid #eeeeee;
+            margin: (@baseLineHeight / 2) 0;
+            font-family: @headingsFontFamily;
+            font-weight: @headingsFontWeight;
+            color: @headingsColor;
+            text-rendering: optimizelegibility; // Fix the character spacing for headings
+            line-height: @baseLineHeight * 2;
+            font-size: @baseFontSize * 2.25;
         }
 
         .footer {
@@ -176,6 +194,10 @@
 
         .info_license {
             padding-bottom: 5px;
+
+            a:hover {
+                text-decoration: underline;
+            }
         }
 
         .info_tos {
@@ -406,7 +428,7 @@
             }
             span.sub {
                 font-size: 0.7em;
-                color: #999999;
+                color: @grayLight;
                 font-style: italic;
                 a {
                     color: #777777;
@@ -546,9 +568,9 @@
                     }
                 }
 
-                &:last-child {
+                /*&:last-child {
                     border-bottom: none;
-                }
+                }*/
 
                 div.heading {
                     border: 1px solid transparent;
@@ -556,13 +578,14 @@
                     clear: both;
                     overflow: hidden;
                     display: block;
+                    margin: 5px 0;
                     ul.options {
                         overflow: hidden;
                         padding: 0;
                         display: block;
                         clear: none;
                         float: right;
-                        margin: 14px 10px 0 0;
+                        margin: 4px 10px 0 0;
                         li {
                             float: left;
                             clear: none;
@@ -601,7 +624,7 @@
                         }
                     }
                     h2 {
-                        color: #999999;
+                        color: @grayLight;
                         padding-left: 0;
                         display: block;
                         clear: none;
@@ -609,10 +632,11 @@
                         font-family: @sansFontFamily;
                         font-weight: bold;
                         a {
-                            color: #999999;
+                            color: @grayLight;
                         }
                         a:hover {
                             color: black;
+                            text-decoration: none;
                         }
                     }
                 }
@@ -633,7 +657,7 @@
                                     display: block;
                                     margin: 0;
                                     padding: 0;
-                                    .border-radius(@borderRadiusLarge);
+                                    .border-radius(@baseBorderRadius);
                                     h3 {
                                         display: block;
                                         clear: none;
@@ -648,6 +672,8 @@
                                             a {
                                                 color: black;
                                                 text-decoration: none;
+                                                font-weight: normal;
+                                                vertical-align: middle;
                                             }
                                             a:hover {
                                                 text-decoration: underline;
@@ -669,6 +695,8 @@
                                                 -ms-border-radius: @borderRadiusSmall;
                                                 -khtml-border-radius: @borderRadiusSmall;
                                                 border-radius: @borderRadiusSmall;
+                                                .btn;
+                                                .btn-small;
                                             }
                                         }
                                         span {
@@ -682,15 +710,18 @@
                                         display: block;
                                         clear: none;
                                         float: right;
-                                        margin: 6px 10px 0 0;
+                                        margin: 3px 10px 0 0;
+                                        vertical-align: middle;
                                         li {
                                             float: left;
                                             clear: none;
                                             margin: 0;
                                             padding: 2px 10px;
                                             font-size: 0.9em;
+                                            vertical-align: middle;
                                             a {
                                                 text-decoration: none;
+                                                font-weight: normal;
                                             }
                                         }
                                     }
@@ -702,7 +733,7 @@
                                 }
                                 div.content {
                                     border-top: none;
-                                    padding: 10px;
+                                    padding: (10px + @baseBorderRadius) 10px 10px 10px;
                                     -moz-border-radius-bottomleft: 6px;
                                     -webkit-border-bottom-left-radius: 6px;
                                     -o-border-bottom-left-radius: 6px;
@@ -715,7 +746,7 @@
                                     -ms-border-bottom-right-radius: 6px;
                                     -khtml-border-bottom-right-radius: 6px;
                                     border-bottom-right-radius: 6px;
-                                    margin: 0 0 20px;
+                                    margin: -@baseBorderRadius 0 20px;
                                     h4 {
                                         font-size: 1.1em;
                                         margin: 0;
@@ -736,6 +767,7 @@
                                             clear: none;
                                             float: left;
                                             padding: 6px 8px;
+                                            .btn;.btn-large;
                                         }
                                         span.response_throbber {
                                             background-image: url('../images/throbber.gif');
@@ -767,12 +799,13 @@
                             }
                             li.operation.put {
                                 div.heading {
-                                    background-color: #f9f2e9;
+                                    background-color: lighten(@btnWarningBackground, 30%);
                                     border: 1px solid #c5862b;
                                     h3 {
                                         span.http_method {
                                             a {
                                                 background-color: #c5862b;
+                                                .btn-warning;
                                             }
                                         }
                                     }
@@ -788,7 +821,7 @@
                                     }
                                 }
                                 div.content {
-                                    background-color: #faf5ee;
+                                    background-color: lighten(@btnWarningBackground, 30%);
                                     border: 1px solid #c5862b;
                                     h4 {
                                         color: #c5862b;
@@ -841,14 +874,14 @@
                             }
                             li.operation.delete {
                                 div.heading {
-                                    background-color: #f5e8e8;
+                                    background-color: lighten(@btnDangerBackground, 30%);
                                     border: 1px solid @pink;
                                     h3 {
                                         span.http_method {
                                             a {
                                                 text-transform: uppercase;
                                                 background-color: @red;
-
+                                                .btn-danger;
                                             }
                                         }
                                     }
@@ -864,7 +897,7 @@
                                     }
                                 }
                                 div.content {
-                                    background-color: #f7eded;
+                                    background-color: lighten(@btnDangerBackground, 30%);
                                     border: 1px solid @pink;
                                     h4 {
                                         color: @red;
@@ -878,12 +911,13 @@
                             }
                             li.operation.post {
                                 div.heading {
-                                    background-color: #e7f6ec;
+                                    background-color: lighten(@btnSuccessBackground, 30%);
                                     border: 1px solid @green;
                                     h3 {
                                         span.http_method {
                                             a {
                                                 background-color: @green;
+                                                .btn-success;
                                             }
                                         }
                                     }
@@ -899,7 +933,7 @@
                                     }
                                 }
                                 div.content {
-                                    background-color: #ebf7f0;
+                                    background-color: lighten(@btnSuccessBackground, 30%);
                                     border: 1px solid @green;
                                     h4 {
                                         color: @green;
@@ -957,6 +991,7 @@
                                         span.http_method {
                                             a {
                                                 background-color: @blueDark;
+                                                .btn-primary;
                                             }
                                         }
                                     }
@@ -972,7 +1007,7 @@
                                     }
                                 }
                                 div.content {
-                                    background-color: #ebf3f9;
+                                    background-color: #e7f0f7;
                                     border: 1px solid @blue;
                                     h4 {
                                         color: @blueDark;
@@ -1050,6 +1085,27 @@
                     }
                 }
             }
+
+            li.resource > div.heading > ul.options > li {
+                border-right: 1px solid @tableBorder;
+                padding: 10px;
+
+                a {
+                    padding: 5px 10px;
+                    .border-radius(@baseBorderRadius);
+                }
+
+                &:focus a, &:hover a {
+                    color: @white;
+                    background-color: @gray;
+                    text-decoration: none;
+                    overflow: visible;
+                }
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
         }
 
         p#colophon {
@@ -1058,7 +1114,7 @@
             font-size: 0.8em;
             border-top: 1px solid #dddddd;
             font-family: @sansFontFamily;
-            color: #999999;
+            color: @grayLight;
             font-style: italic;
             a {
                 text-decoration: none;
@@ -1108,6 +1164,10 @@
 
         .operation-status td.markdown > p:last-child {
             padding-bottom: 0;
+        }
+
+        #validator {
+            display: none;
         }
     }
 

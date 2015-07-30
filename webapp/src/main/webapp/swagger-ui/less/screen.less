@@ -1,6 +1,11 @@
 @import 'highlight_default.less';
 @import 'specs.less';
 @import 'auth.less';
+@import "eXo/variables";
+@import "eXo/navbar";
+@import "eXo/mixins";
+
+@navbarHeight: 50px;
 
 .swagger-section {
 
@@ -72,20 +77,36 @@
     }
 
     #header {
-        background: transparent url("../images/themes/default/platform/portlets/extensions/headerBG.png");
-        height: 50px;
+        background: transparent url("../images/eXo/BgHeader.png");
+        height: @navbarHeight;
         border-bottom: 1px solid #2D2D2D;
-        box-shadow: 0px 2px 4px 0px rgba(13, 13, 13, 0.42);
+        padding: 0 10px;
+        .box-shadow(0px 2px 4px 0px rgba(13, 13, 13, 0.42));
+        .navbar;
+        .navbar-fixed-top;
+
+        /*position: fixed;
+        width: 100%;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+        overflow: visible;*/
+
+        div {
+            min-height: @navbarHeight;
+        }
+
         a#logo {
             font-size: 1.5em;
             font-weight: bold;
             text-decoration: none;
-            background: transparent url(../images/themes/default/platform/portlets/extensions/Logo.png) no-repeat center center;
-            padding: 0px 20px 20px 65px;
+            background: transparent url(../images/eXo/LogoeXo.png) no-repeat left center;
+            padding: 0 0 20px 70px;
             color: white;
         }
         form#api_selector {
-            display: block;
+            display: none;
             clear: none;
             float: right;
             .input {
@@ -129,7 +150,7 @@
     #content_message {
         margin: 10px 15px;
         font-style: italic;
-        color: #999999;
+        color: @grayLight;
     }
 
     #message-bar {
@@ -137,6 +158,8 @@
         text-align: center;
         padding-top: 10px;
         border-bottom: 1px solid #eee;
+
+        margin-top: @navbarHeight;
     }
 
 }
