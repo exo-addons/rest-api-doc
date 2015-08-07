@@ -1,6 +1,6 @@
-@import "eXo/variables";
-@import "eXo/mixins";
-@import "eXo/buttons";
+@import "variables.less";
+@import "mixins.less";
+@import "../bootstrap/less/buttons.less";
 //@import "eXo/navbar";
 
 
@@ -11,7 +11,8 @@
 
         line-height: 1;
         font-family: @sansFontFamily;
-        max-width: 960px;
+        //max-width: 960px;
+        padding: 0 10px;
         margin-left: auto;
         margin-right: auto;
 
@@ -109,12 +110,13 @@
         }
 
         a {
-            color: #345f8f;
+            color: @linkColor;
             text-decoration: none;
-            font-weight: 600;
+            //font-weight: 600;
 
-            &:focus {
+            &:focus, &:hover {
                 //outline: thin dotted;
+                color: @linkColorHover;
                 outline: none;
             }
 
@@ -167,7 +169,7 @@
             //font-weight: bold;
             //font-size: 25px;
             //margin: 10px 0 30px;
-            border-bottom: 1px solid #eeeeee;
+            border-bottom: 1px dotted @grayLighter;
             margin: (@baseLineHeight / 2) 0;
             font-family: @headingsFontFamily;
             font-weight: @headingsFontWeight;
@@ -568,9 +570,9 @@
                     }
                 }
 
-                /*&:last-child {
+                &:last-child {
                     border-bottom: none;
-                }*/
+                }
 
                 div.heading {
                     border: 1px solid transparent;

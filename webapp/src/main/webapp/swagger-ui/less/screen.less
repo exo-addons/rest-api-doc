@@ -1,9 +1,9 @@
 @import 'highlight_default.less';
 @import 'specs.less';
 @import 'auth.less';
-@import "eXo/variables";
-@import "eXo/navbar";
-@import "eXo/mixins";
+@import "variables.less";
+@import "../bootstrap/less/navbar.less";
+@import "mixins.less";
 
 @navbarHeight: 50px;
 
@@ -157,7 +157,7 @@
         min-height: 30px;
         text-align: center;
         padding-top: 10px;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px dotted @grayLighter;
 
         margin-top: @navbarHeight;
     }
