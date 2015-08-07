@@ -549,7 +549,7 @@ input[type="submit"].btn.btn-mini {
   text-decoration: none;
 }
 .swagger-section {
-  background-image: url("../images/eXo/parttern.jpg");
+  background-image: url("../../images/eXo/parttern.jpg");
 }
 .swagger-section .swagger-ui-wrap {
   line-height: 1;
@@ -1423,7 +1423,7 @@ input[type="submit"].btn.btn-mini {
   box-shadow: none;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content div.sandbox_header span.response_throbber {
-  background-image: url('../images/throbber.gif');
+  background-image: url('../../images/throbber.gif');
   width: 128px;
   height: 16px;
   display: block;
@@ -2460,7 +2460,7 @@ input[type="submit"].btn.btn-mini {
   height: 18px;
   vertical-align: middle;
   display: inline-block;
-  background: url(../images/explorer_icons.png) no-repeat;
+  background: url(../../images/explorer_icons.png) no-repeat;
 }
 .swagger-section .ic-info {
   background-position: 0 0;
@@ -2493,7 +2493,7 @@ input[type="submit"].btn.btn-mini {
   cursor: pointer;
 }
 .swagger-section #header {
-  background: transparent url("../images/eXo/BgHeader.png");
+  background: transparent url("../../images/eXo/BgHeader.png");
   height: 50px;
   border-bottom: 1px solid #2D2D2D;
   padding: 0 10px;
@@ -2530,7 +2530,7 @@ input[type="submit"].btn.btn-mini {
   font-size: 1.5em;
   font-weight: bold;
   text-decoration: none;
-  background: transparent url(../images/eXo/LogoeXo.png) no-repeat left center;
+  background: transparent url(../../images/eXo/LogoeXo.png) no-repeat left center;
   padding: 0 0 20px 70px;
   color: white;
 }
