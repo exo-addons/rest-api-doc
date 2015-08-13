@@ -1,3 +1,390 @@
+.btn {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e6e6e6;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #cfcfcf;
+  *border: 0;
+  border-bottom-color: #b6b6b6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+.btn:active,
+.btn.active {
+  background-color: #cccccc \9;
+}
+.btn:first-child {
+  *margin-left: 0;
+}
+.btn:hover,
+.btn:focus {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.btn:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn.active,
+.btn:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.btn.disabled,
+.btn[disabled] {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn-large {
+  padding: 4px 10px;
+  font-size: 14px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.btn-large [class^="icon-"],
+.btn-large [class*=" icon-"] {
+  margin-top: 4px;
+}
+.btn-small {
+  padding: 2px 10px;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.btn-small [class^="icon-"],
+.btn-small [class*=" icon-"] {
+  margin-top: 0;
+}
+.btn-mini [class^="icon-"],
+.btn-mini [class*=" icon-"] {
+  margin-top: -1px;
+}
+.btn-mini {
+  padding: 0 10px;
+  font-size: 11px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
+  width: 100%;
+}
+.btn-primary.active,
+.btn-warning.active,
+.btn-danger.active,
+.btn-success.active,
+.btn-info.active,
+.btn-inverse.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+.btn-primary {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #477ab3;
+  background-image: -moz-linear-gradient(top, #578dc9, #2f5e92);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#578dc9), to(#2f5e92));
+  background-image: -webkit-linear-gradient(top, #578dc9, #2f5e92);
+  background-image: -o-linear-gradient(top, #578dc9, #2f5e92);
+  background-image: linear-gradient(to bottom, #578dc9, #2f5e92);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff578dc9', endColorstr='#ff2f5e92', GradientType=0);
+  border-color: #2f5e92 #2f5e92 #1c3958;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #2f5e92;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  color: #ffffff;
+  background-color: #2f5e92;
+  *background-color: #29527f;
+}
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #23456b \9;
+}
+.btn-warning {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #faa732;
+  background-image: -moz-linear-gradient(top, #fbb450, #f89406);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fbb450), to(#f89406));
+  background-image: -webkit-linear-gradient(top, #fbb450, #f89406);
+  background-image: -o-linear-gradient(top, #fbb450, #f89406);
+  background-image: linear-gradient(to bottom, #fbb450, #f89406);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffbb450', endColorstr='#fff89406', GradientType=0);
+  border-color: #f89406 #f89406 #ad6704;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #f89406;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active,
+.btn-warning.active,
+.btn-warning.disabled,
+.btn-warning[disabled] {
+  color: #ffffff;
+  background-color: #f89406;
+  *background-color: #df8505;
+}
+.btn-warning:active,
+.btn-warning.active {
+  background-color: #c67605 \9;
+}
+.btn-danger {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #da4f49;
+  background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+  border-color: #bd362f #bd362f #802420;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #bd362f;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active,
+.btn-danger.disabled,
+.btn-danger[disabled] {
+  color: #ffffff;
+  background-color: #bd362f;
+  *background-color: #a9302a;
+}
+.btn-danger:active,
+.btn-danger.active {
+  background-color: #942a25 \9;
+}
+.btn-success {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #5bb75b;
+  background-image: -moz-linear-gradient(top, #62c462, #51a351);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+  background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+  background-image: -o-linear-gradient(top, #62c462, #51a351);
+  background-image: linear-gradient(to bottom, #62c462, #51a351);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
+  border-color: #51a351 #51a351 #387038;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #51a351;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  color: #ffffff;
+  background-color: #51a351;
+  *background-color: #499249;
+}
+.btn-success:active,
+.btn-success.active {
+  background-color: #408140 \9;
+}
+.btn-info {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #49afcd;
+  background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f96b4));
+  background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: linear-gradient(to bottom, #5bc0de, #2f96b4);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+  border-color: #2f96b4 #2f96b4 #1f6377;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #2f96b4;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active,
+.btn-info.disabled,
+.btn-info[disabled] {
+  color: #ffffff;
+  background-color: #2f96b4;
+  *background-color: #2a85a0;
+}
+.btn-info:active,
+.btn-info.active {
+  background-color: #24748c \9;
+}
+.btn-inverse {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #363636;
+  background-image: -moz-linear-gradient(top, #444444, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
+  background-image: -webkit-linear-gradient(top, #444444, #222222);
+  background-image: -o-linear-gradient(top, #444444, #222222);
+  background-image: linear-gradient(to bottom, #444444, #222222);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff222222', GradientType=0);
+  border-color: #222222 #222222 #000000;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #222222;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-inverse:hover,
+.btn-inverse:focus,
+.btn-inverse:active,
+.btn-inverse.active,
+.btn-inverse.disabled,
+.btn-inverse[disabled] {
+  color: #ffffff;
+  background-color: #222222;
+  *background-color: #151515;
+}
+.btn-inverse:active,
+.btn-inverse.active {
+  background-color: #080808 \9;
+}
+button.btn,
+input[type="submit"].btn {
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+}
+button.btn::-moz-focus-inner,
+input[type="submit"].btn::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+button.btn.btn-large,
+input[type="submit"].btn.btn-large {
+  *padding-top: 7px;
+  *padding-bottom: 7px;
+}
+button.btn.btn-small,
+input[type="submit"].btn.btn-small {
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+}
+button.btn.btn-mini,
+input[type="submit"].btn.btn-mini {
+  *padding-top: 1px;
+  *padding-bottom: 1px;
+}
+.btn-link,
+.btn-link:active,
+.btn-link[disabled] {
+  background-color: transparent;
+  background-image: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn-link {
+  border-color: transparent;
+  cursor: pointer;
+  color: #2f5e92;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.btn-link:hover,
+.btn-link:focus {
+  color: #2f5e92;
+  text-decoration: underline;
+  background-color: transparent;
+}
+.btn-link[disabled]:hover,
+.btn-link[disabled]:focus {
+  color: #333333;
+  text-decoration: none;
+}
 .hide-text {
   font: 0/0 a;
   color: transparent;
@@ -39,37 +426,1167 @@
     transform: rotate(359deg);
   }
 }
+.btn-group {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  font-size: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+  *margin-left: .3em;
+}
+.btn-group:first-child {
+  *margin-left: 0;
+}
+.btn-group + .btn-group {
+  margin-left: 5px;
+}
+.btn-toolbar {
+  font-size: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.btn-toolbar > .btn + .btn,
+.btn-toolbar > .btn-group + .btn,
+.btn-toolbar > .btn + .btn-group {
+  margin-left: 5px;
+}
+.btn-group > .btn {
+  position: relative;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.btn-group > .btn + .btn {
+  margin-left: -1px;
+}
+.btn-group > .btn,
+.btn-group > .dropdown-menu,
+.btn-group > .popover {
+  font-size: 13px;
+}
+.btn-group > .btn-mini {
+  font-size: 11px;
+}
+.btn-group > .btn-small {
+  font-size: 12px;
+}
+.btn-group > .btn-large {
+  font-size: 14px;
+}
+.btn-group > .btn:first-child {
+  margin-left: 0;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-left-radius: 3px;
+}
+.btn-group > .btn:last-child,
+.btn-group > .dropdown-toggle {
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-bottom-right-radius: 3px;
+}
+.btn-group > .btn.large:first-child {
+  margin-left: 0;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-left-radius: 3px;
+}
+.btn-group > .btn.large:last-child,
+.btn-group > .large.dropdown-toggle {
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-bottom-right-radius: 3px;
+}
+.btn-group > .btn:hover,
+.btn-group > .btn:focus,
+.btn-group > .btn:active,
+.btn-group > .btn.active {
+  z-index: 2;
+}
+.btn-group .dropdown-toggle:active,
+.btn-group.open .dropdown-toggle {
+  outline: 0;
+}
+.btn-group > .btn + .dropdown-toggle {
+  padding-left: 8px;
+  padding-right: 8px;
+  -webkit-box-shadow: inset 1px 0 0 rgba(255,255,255,.125), inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 1px 0 0 rgba(255,255,255,.125), inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 1px 0 0 rgba(255,255,255,.125), inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  *padding-top: 5px;
+  *padding-bottom: 5px;
+}
+.btn-group > .btn-mini + .dropdown-toggle {
+  padding-left: 5px;
+  padding-right: 5px;
+  *padding-top: 2px;
+  *padding-bottom: 2px;
+}
+.btn-group > .btn-small + .dropdown-toggle {
+  *padding-top: 5px;
+  *padding-bottom: 4px;
+}
+.btn-group > .btn-large + .dropdown-toggle {
+  padding-left: 12px;
+  padding-right: 12px;
+  *padding-top: 7px;
+  *padding-bottom: 7px;
+}
+.btn-group.open .dropdown-toggle {
+  background-image: none;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.btn-group.open .btn.dropdown-toggle {
+  background-color: #e6e6e6;
+}
+.btn-group.open .btn-primary.dropdown-toggle {
+  background-color: #2f5e92;
+}
+.btn-group.open .btn-warning.dropdown-toggle {
+  background-color: #f89406;
+}
+.btn-group.open .btn-danger.dropdown-toggle {
+  background-color: #bd362f;
+}
+.btn-group.open .btn-success.dropdown-toggle {
+  background-color: #51a351;
+}
+.btn-group.open .btn-info.dropdown-toggle {
+  background-color: #2f96b4;
+}
+.btn-group.open .btn-inverse.dropdown-toggle {
+  background-color: #222222;
+}
+.btn .caret {
+  margin-top: 8px;
+  margin-left: 0;
+}
+.btn-large .caret {
+  margin-top: 6px;
+}
+.btn-large .caret {
+  border-left-width: 5px;
+  border-right-width: 5px;
+  border-top-width: 5px;
+}
+.btn-mini .caret,
+.btn-small .caret {
+  margin-top: 8px;
+}
+.dropup .btn-large .caret {
+  border-bottom-width: 5px;
+}
+.btn-primary .caret,
+.btn-warning .caret,
+.btn-danger .caret,
+.btn-info .caret,
+.btn-success .caret,
+.btn-inverse .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.btn-group-vertical {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+}
+.btn-group-vertical > .btn {
+  display: block;
+  float: none;
+  max-width: 100%;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.btn-group-vertical > .btn + .btn {
+  margin-left: 0;
+  margin-top: -1px;
+}
+.btn-group-vertical > .btn:first-child {
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}
+.btn-group-vertical > .btn:last-child {
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+.btn-group-vertical > .btn-large:first-child {
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}
+.btn-group-vertical > .btn-large:last-child {
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
 .swagger-section {
   color: #333333;
   font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .swagger-section #message-bar {
-  padding-top: 51px;
+  margin-top: 51px;
 }
-.swagger-section #message-bar,
-.swagger-section .info_title {
+.swagger-section #situation-bar {
   border-bottom: 1px dotted #cfcfcf;
 }
-.swagger-section .info_title {
-  font-size: 35.75px;
-  margin: 20px 0;
-  font-family: inherit;
-  font-weight: bold;
-  line-height: 20px;
-  height: 40px;
+.swagger-section #situation-bar p {
+  padding: 20px 0 10px 0;
+}
+.swagger-section #situation-bar p span {
+  display: inline-block;
+}
+.swagger-section #situation-bar p span a {
   color: inherit;
-  text-rendering: optimizelegibility;
+}
+.swagger-section #situation-bar p span.rightArrow {
+  width: 16px;
+  background: transparent url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackNextArrow.gif") no-repeat center right;
+  -webkit-background-size: 120%;
+  -moz-background-size: 120%;
+  -o-background-size: 120%;
+  background-size: 120%;
+}
+.swagger-section #situation-bar p span.current-resource {
+  color: #999999;
+  font-weight: bold;
+}
+.swagger-section .info {
+  margin: 20px 0;
+}
+.swagger-section .info_title {
+  /*font-size: @baseFontSize * 2.75;
+        margin: @baseLineHeight 0;
+        font-family: @headingsFontFamily;
+        font-weight: @headingsFontWeight;
+        line-height: @baseLineHeight;
+        height: @baseLineHeight * 2;
+        color: @headingsColor;
+        text-rendering: optimizelegibility; // Fix the character spacing for headings*/
+  color: #345f8f;
+  font-size: 21px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 20px;
 }
 .swagger-section .info_description {
   font-weight: bold;
 }
-.swagger-section .swagger-ui-wrap {
-  padding: 0 20px;
+.swagger-section .info_name {
+  margin-bottom: 10px;
 }
-.swagger-section .swagger-ui-wrap .container {
-  width: 100%;
+.swagger-section .swagger-ui-wrap {
+  margin: 0 20px;
+  clear: both;
 }
 .swagger-section .swagger-ui-wrap a {
   text-decoration: none;
   color: #2f5e92;
+  outline: none;
+}
+.swagger-section .swagger-ui-wrap .container {
+  width: 100%;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource {
+  border-bottom: 1px solid #cccccc;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource:last-child {
+  border-bottom: none;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource div.heading {
+  float: none;
+  clear: both;
+  overflow: hidden;
+  display: block;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource div.heading a {
+  color: #333333;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource div.heading h2 {
+  float: left;
+  margin: 10px 0;
+  font-size: 15px;
+  text-rendering: optimizelegibility;
+  line-height: normal;
+  display: block;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource div.heading ul.options {
+  float: right;
+  display: block;
+  margin: 10px 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource div.heading ul.options li {
+  display: inline;
+  height: 20px;
+  border-right: 1px solid #cccccc;
+  overflow: visible;
+  padding: 0 5px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource div.heading ul.options li:first-child {
+  padding-right: 1px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource div.heading ul.options li:last-child {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 1px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource div.heading ul.options li a {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  overflow: visible;
+  padding: 5px 9px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource div.heading ul.options li a:hover {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  margin: 0 -1px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint {
+  border-top: 1px solid #f0f0f0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint:last-child {
+  border-bottom: 1px solid #f0f0f0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation {
+  clear: both;
+  overflow: hidden;
+  display: block;
+  background-color: transparent;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading {
+  overflow: hidden;
+  display: block;
+  height: 44px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 {
+  display: block;
+  float: left;
+  line-height: 20px;
+  font-size: 13px;
+  font-weight: normal;
+  padding: 6px 0;
+  margin: 6px 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span.path a {
+  color: #2f5e92;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span.path a:hover {
+  font-weight: bold;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span.http_method {
+  width: 80px;
+  overflow: visible;
+  float: left;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span.http_method a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  padding: 0 8px ;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #2f5e92;
+  width: auto;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span {
+  margin: 0;
+  padding: 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading ul.options {
+  overflow: hidden;
+  display: block;
+  float: right;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading ul.options li {
+  float: left;
+  margin: 0;
+  padding: 2px 0;
+  vertical-align: middle;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading ul.options li a {
+  text-decoration: none;
+  font-weight: normal;
+  color: #808080;
+  border: none;
+  margin: 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading ul.options li a:hover {
+  background-color: transparent;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading:hover,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading:focus,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading:active {
+  background-color: #fafafa;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.heading h3 span.http_method a {
+  background-color: #215ab2;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.delete div.heading h3 span.http_method a {
+  background-color: #cc0000;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.put div.heading h3 span.http_method a {
+  background-color: #fd8c40;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.heading h3 span.http_method a {
+  background-color: #39c522;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content {
+  padding: 0 20px 15px 20px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content h4 {
+  font-size: 13px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content h4:first-child {
+  margin-top: 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table {
+  /*border: 1px solid @borderColor;
+                                            border-collapse: collapse;*/
+  text-align: left;
+  -webkit-box-shadow: 2px 3px 2px #efefef, -2px 3px 2px #efefef;
+  -moz-box-shadow: 2px 3px 2px #efefef, -2px 3px 2px #efefef;
+  box-shadow: 2px 3px 2px #efefef, -2px 3px 2px #efefef;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table thead {
+  background-color: #f0f0f0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table thead th {
+  -webkit-box-shadow: 0px 3px 3px #e9e9e9;
+  -moz-box-shadow: 0px 3px 3px #e9e9e9;
+  box-shadow: 0px 3px 3px #e9e9e9;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table tbody tr:nth-child(odd) {
+  background-color: transparent;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table tbody tr:nth-child(even) {
+  background-color: white;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table th,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table td {
+  border: 1px solid #cfcfcf;
+  padding: 10px 20px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table td {
+  vertical-align: top;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table td p,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table td input,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table td label {
+  margin: 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table td input {
+  margin-top: -4px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table textarea,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table select,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table input {
+  width: 100%;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  font-size: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+  *margin-left: .3em;
+  margin-bottom: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav:first-child {
+  *margin-left: 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li {
+  margin: 0;
+  border-right: none;
+  display: inline-block;
+  width: 50%;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e6e6e6;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #cfcfcf;
+  *border: 0;
+  border-bottom-color: #b6b6b6;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  padding: 2px 10px;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border-right: transparent;
+  color: #333333;
+  display: block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:hover,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:focus,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a.active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a.disabled,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a.active {
+  background-color: #cccccc \9;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:first-child {
+  *margin-left: 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:hover,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:focus {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a.active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a.disabled,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a[disabled] {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:focus {
+  outline: none;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li a.selected {
+  background-image: none;
+  outline: 0;
+  color: #2f5e92;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:first-child a {
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-left-radius: 3px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e6e6e6;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #cfcfcf;
+  *border: 0;
+  border-bottom-color: #b6b6b6;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  padding: 2px 10px;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-left-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  border-bottom-left-radius: 0;
+  display: block;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:hover,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:focus,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a.active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a.disabled,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a.active {
+  background-color: #cccccc \9;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:first-child {
+  *margin-left: 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:hover,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:focus {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a.active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a.disabled,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a[disabled] {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:focus {
+  outline: none;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table ul.signature-nav li:last-child a.selected {
+  background-image: none;
+  outline: 0;
+  color: #2f5e92;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table div.parameter-content-type div label {
+  display: inline-block;
+  float: left;
+  width: 45%;
+  margin-top: 4px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table div.parameter-content-type div select {
+  display: inline-block;
+  margin: 0;
+  float: left;
+  width: 55%;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table .strong,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table .propName {
+  font-weight: bold;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table .propType {
+  color: #2f5e92;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table div.signature-container {
+  padding: 0 10px;
+  clear: both;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table div.signature-container div.description div {
+  margin-left: 10px;
+  padding: 3px 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table strong span.markdown {
+  font-weight: normal;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header {
+  margin-top: 15px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  *background-color: #e6e6e6;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  border: 1px solid #cfcfcf;
+  *border: 0;
+  border-bottom-color: #b6b6b6;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  padding: 2px 10px;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #477ab3;
+  background-image: -moz-linear-gradient(top, #578dc9, #2f5e92);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#578dc9), to(#2f5e92));
+  background-image: -webkit-linear-gradient(top, #578dc9, #2f5e92);
+  background-image: -o-linear-gradient(top, #578dc9, #2f5e92);
+  background-image: linear-gradient(to bottom, #578dc9, #2f5e92);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff578dc9', endColorstr='#ff2f5e92', GradientType=0);
+  border-color: #2f5e92 #2f5e92 #1c3958;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #2f5e92;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:hover,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:focus,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit.active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit.disabled,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit.active {
+  background-color: #cccccc \9;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:first-child {
+  *margin-left: 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:hover,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:focus {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit.active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit.disabled,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit[disabled] {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:hover,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:focus,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit.active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit.disabled,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit[disabled] {
+  color: #ffffff;
+  background-color: #2f5e92;
+  *background-color: #29527f;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit.active {
+  background-color: #23456b \9;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header input.submit .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e6e6e6;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #cfcfcf;
+  *border: 0;
+  border-bottom-color: #b6b6b6;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  padding: 2px 10px;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider:hover,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider:focus,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider.active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider.disabled,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider:active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider.active {
+  background-color: #cccccc \9;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider:first-child {
+  *margin-left: 0;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider:hover,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider:focus {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider.active,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider.disabled,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content form.sandbox div.sandbox_header a.response_hider[disabled] {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content div.snippet {
+  cursor: pointer;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.expanded {
+  background-color: #fafafa;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.expanded div.heading h3 span.path a {
+  font-weight: bold;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation:hover div.heading h3 span.path a {
+  font-weight: bold;
+}
+.swagger-section .swagger-ui-wrap .footer {
+  margin-top: 20px;
+}
+.swagger-section .swagger-ui-wrap .footer h4 {
+  font-weight: normal;
+  font-size: 15px;
+}
+.swagger-section .swagger-ui-wrap pre {
+  background-color: transparent;
+}
+.swagger-section .API-resource {
+  border-bottom: 1px dotted #cfcfcf;
+  padding: 20px 0;
+  height: 28px;
+}
+.swagger-section .API-resource h1 {
+  float: left;
+  font-size: 25px;
+  margin-top: 0;
+  line-height: 25px;
+}
+.swagger-section .API-resource select {
+  float: right;
+  width: auto;
+  border: 1px solid #c7c7c7;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackDownArrow.gif") no-repeat 94% 50%;
+  -webkit-box-shadow: inset 0 -4px 4px #f1f1f1;
+  -moz-box-shadow: inset 0 -4px 4px #f1f1f1;
+  box-shadow: inset 0 -4px 4px #f1f1f1;
+}
+select {
+  overflow: hidden;
+  background: url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/GrayDownArrow.gif") no-repeat center right;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  outline: none;
+  padding: 0px 15px;
+  line-height: 26px;
+}
+select:focus,
+select:active,
+select option,
+select option:focus,
+select option:active {
+  outline: none;
+  outline-offset: 0;
+}
+select option {
+  outline: none;
+  outline-offset: 0;
+}
+select option:active,
+select option:hover,
+select option:focus {
+  outline: none;
+  outline-offset: 0;
+}
+/* HIGHLIGHT */
+/* Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org> */
+.swagger-section pre code {
+  display: block;
+}
+.swagger-section pre .string,
+.swagger-section pre .title,
+.swagger-section pre .constant,
+.swagger-section pre .parent,
+.swagger-section pre .tag .value,
+.swagger-section pre .rules .value,
+.swagger-section pre .rules .value .number,
+.swagger-section pre .preprocessor,
+.swagger-section pre .ruby .symbol,
+.swagger-section pre .ruby .symbol .string,
+.swagger-section pre .aggregate,
+.swagger-section pre .template_tag,
+.swagger-section pre .django .variable,
+.swagger-section pre .smalltalk .class,
+.swagger-section pre .addition,
+.swagger-section pre .flow,
+.swagger-section pre .stream,
+.swagger-section pre .bash .variable,
+.swagger-section pre .apache .tag,
+.swagger-section pre .apache .cbracket,
+.swagger-section pre .tex .command,
+.swagger-section pre .tex .special,
+.swagger-section pre .erlang_repl .function_or_atom,
+.swagger-section pre .markdown .header {
+  color: #cc0000;
+}
+.swagger-section pre .comment,
+.swagger-section pre .annotation,
+.swagger-section pre .template_comment,
+.swagger-section pre .diff .header,
+.swagger-section pre .chunk,
+.swagger-section pre .markdown .blockquote {
+  color: #888;
+}
+.swagger-section pre .number,
+.swagger-section pre .date,
+.swagger-section pre .regexp,
+.swagger-section pre .literal,
+.swagger-section pre .smalltalk .symbol,
+.swagger-section pre .smalltalk .char,
+.swagger-section pre .go .constant,
+.swagger-section pre .change,
+.swagger-section pre .markdown .bullet,
+.swagger-section pre .markdown .link_url {
+  color: #2f5e92;
+}
+.swagger-section pre .label,
+.swagger-section pre .javadoc,
+.swagger-section pre .ruby .string,
+.swagger-section pre .decorator,
+.swagger-section pre .filter .argument,
+.swagger-section pre .localvars,
+.swagger-section pre .array,
+.swagger-section pre .attr_selector,
+.swagger-section pre .important,
+.swagger-section pre .pseudo,
+.swagger-section pre .pi,
+.swagger-section pre .doctype,
+.swagger-section pre .deletion,
+.swagger-section pre .envvar,
+.swagger-section pre .shebang,
+.swagger-section pre .apache .sqbracket,
+.swagger-section pre .nginx .built_in,
+.swagger-section pre .tex .formula,
+.swagger-section pre .erlang_repl .reserved,
+.swagger-section pre .prompt,
+.swagger-section pre .markdown .link_label,
+.swagger-section pre .vhdl .attribute,
+.swagger-section pre .clojure .attribute,
+.swagger-section pre .coffeescript .property {
+  color: #8888ff;
+}
+.swagger-section pre .keyword,
+.swagger-section pre .id,
+.swagger-section pre .phpdoc,
+.swagger-section pre .title,
+.swagger-section pre .built_in,
+.swagger-section pre .aggregate,
+.swagger-section pre .css .tag,
+.swagger-section pre .javadoctag,
+.swagger-section pre .phpdoc,
+.swagger-section pre .yardoctag,
+.swagger-section pre .smalltalk .class,
+.swagger-section pre .winutils,
+.swagger-section pre .bash .variable,
+.swagger-section pre .apache .tag,
+.swagger-section pre .go .typename,
+.swagger-section pre .tex .command,
+.swagger-section pre .markdown .strong,
+.swagger-section pre .request,
+.swagger-section pre .status {
+  font-weight: bold;
+}
+.swagger-section pre .markdown .emphasis {
+  font-style: italic;
+}
+.swagger-section pre .nginx .built_in {
+  font-weight: normal;
+}
+.swagger-section pre .coffeescript .javascript,
+.swagger-section pre .javascript .xml,
+.swagger-section pre .tex .formula,
+.swagger-section pre .xml .javascript,
+.swagger-section pre .xml .vbscript,
+.swagger-section pre .xml .css,
+.swagger-section pre .xml .cdata {
+  opacity: 0.5;
 }

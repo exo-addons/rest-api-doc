@@ -1,48 +1,652 @@
-//@import "../bootstrap/less/buttons.less";
+@import "../bootstrap/less/buttons.less";
 @import "variables.less";
 @import "mixins.less";
-//@import "../bootstrap/less/navbar.less";
+@import "../bootstrap/less/button-groups.less";
 
+// Additional variables
 @navbarHeight: 51px;
+@headingsHeight: 40px;
+@hoverColor: #f8f8f8;
+@infoTitleColor: #345f8f;
+@borderColor: #cfcfcf;
+.appear(@value : none) {
+    -webkit-appearance: @value;
+    -moz-appearance: @value;
+    -o-appearance: @value;
+    appearance: @value;
+}
 
 .swagger-section {
     color: @grayDark;
     font: @sansFontFamily;
 
     #message-bar {
-        padding-top: @navbarHeight;
+        margin-top: @navbarHeight;
     }
 
-    #message-bar, .info_title {
-        border-bottom: 1px dotted #cfcfcf;
+    #situation-bar {
+        border-bottom: 1px dotted @borderColor;
+        //min-height: 60px;
+
+        p {
+            padding: 20px 0 10px 0;
+
+            span {
+                display: inline-block;
+
+                a {
+                    color: inherit;
+                }
+
+                &.rightArrow {
+                    width: 16px;
+                    background: transparent url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackNextArrow.gif") no-repeat center right;
+                    .background-size(120%);
+                }
+
+                &.current-resource {
+                    color: @grayLight;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .info {
+        margin: 20px 0;
     }
 
     .info_title {
-        font-size: @baseFontSize * 2.75;
+        /*font-size: @baseFontSize * 2.75;
         margin: @baseLineHeight 0;
         font-family: @headingsFontFamily;
         font-weight: @headingsFontWeight;
         line-height: @baseLineHeight;
         height: @baseLineHeight * 2;
         color: @headingsColor;
-        text-rendering: optimizelegibility; // Fix the character spacing for headings
+        text-rendering: optimizelegibility; // Fix the character spacing for headings*/
+        color: @infoTitleColor;
+        font-size: 21px;
+        font-weight: bold;
+        font-family: @sansFontFamily;
+        margin-bottom: 20px;
     }
 
     .info_description {
         font-weight: bold;
     }
 
+    .info_name {
+        margin-bottom: 10px;
+    }
+
     .swagger-ui-wrap {
-        padding: 0 @gutterSizeXLarge;
-        
-        .container {
-            width: 100%;
-        }
+        margin: 0 @gutterSizeXLarge;
+        clear: both;
 
         a {
             text-decoration: none;
             color: @primaryColor;
+            outline: none;
         }
+        
+        .container {
+            width: 100%;
+
+            ul#resources {
+                li.resource {
+                    border-bottom: 1px solid @navbarInverseSearchPlaceholderColor;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    div.heading {
+                        float: none;
+                        clear: both;
+                        overflow: hidden;
+                        display: block;
+
+                        a {
+                            color: @grayDark;
+                        }
+
+                        h2 {
+                            float: left;
+                            margin: (@baseLineHeight / 2) 0;
+                            font-size: 15px;
+                            text-rendering: optimizelegibility; // Fix the character spacing for headings
+                            line-height: normal;
+                            display: block;
+                        }
+                        ul.options {
+                            float: right;
+                            display: block;
+                            margin: (@baseLineHeight / 2) 0;
+
+                            li {
+                                display: inline;
+                                height: @baseLineHeight;
+                                border-right: 1px solid @navbarInverseSearchPlaceholderColor;
+                                overflow: visible;
+                                padding: 0 5px;
+
+                                &:first-child {
+                                    padding-right: 1px; // Don't know why, but important
+                                }
+
+                                &:last-child {
+                                    border-right: none;
+                                    padding-right: 0;
+                                    margin-right: 1px;
+                                }
+
+                                a {
+                                    .border-radius(@baseBorderRadius);
+                                    overflow: visible;
+                                    padding: 5px 9px;
+                                }
+
+                                a:hover {
+                                    background-color: @hoverColor;
+                                    border: 1px solid @navbarInverseSearchPlaceholderColor;
+                                    margin: 0 -1px;
+                                }
+                            }
+                        }
+                    }
+
+                    ul.endpoints {
+                        li.endpoint {
+                            border-top: 1px solid @primaryBackground;
+
+                            &:last-child {
+                                border-bottom: 1px solid @primaryBackground;
+                            }
+
+                            ul.operations {
+                                li.operation {
+                                    clear: both;
+                                    overflow: hidden;
+                                    display: block;
+                                    background-color: transparent;
+
+                                    div.heading {
+                                        overflow: hidden;
+                                        display: block;
+                                        height: 44px;
+
+                                        h3 {
+                                            display: block;
+                                            float: left;
+                                            line-height: @baseLineHeight;
+                                            font-size: @baseFontSize;
+                                            font-weight: normal;
+                                            padding: 6px 0;
+                                            margin: 6px 0;
+                                            span.path {
+                                                a {
+                                                    color: @primaryColor;
+
+                                                    &:hover {
+                                                        font-weight: bold;
+                                                    }
+                                                }
+                                            }
+                                            span.http_method {
+                                                width: 80px;
+                                                overflow: visible;
+                                                float: left;
+
+                                                a {
+                                                    text-transform: uppercase;
+                                                    text-decoration: none;
+                                                    font-weight: bold;
+                                                    color: white;
+                                                    display: inline-block;
+                                                    text-align: center;
+                                                    padding: 0 8px ;
+                                                    .border-radius(@borderRadiusSmall);
+                                                    background-color: @primaryColor;
+                                                    width: auto;
+                                                }
+                                            }
+                                            span {
+                                                margin: 0;
+                                                padding: 0;
+                                            }
+                                        }
+                                        ul.options {
+                                            overflow: hidden;
+                                            display: block;
+                                            //clear: none;
+                                            float: right;
+                                            li {
+                                                float: left;
+                                                //clear: none;
+                                                margin: 0;
+                                                padding: 2px 0;
+                                                vertical-align: middle;
+                                                a {
+                                                    text-decoration: none;
+                                                    font-weight: normal;
+                                                    color: @globalLoadingBackground;
+                                                    border: none;
+                                                    margin: 0;
+
+                                                    &:hover {
+                                                        background-color: transparent;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        &:hover, &:focus, &:active {
+                                            background-color: #fafafa;
+                                        }
+                                    }
+
+                                    // Colors of the buttons
+                                    &.get div.heading h3 span.http_method a {
+                                        background-color: #215ab2;
+                                    }
+                                    &.delete div.heading h3 span.http_method a {
+                                        background-color: #cc0000;
+                                    }
+                                    &.put div.heading h3 span.http_method a {
+                                        background-color: #fd8c40;
+                                    }
+                                    &.post div.heading h3 span.http_method a {
+                                        background-color: #39c522;
+                                    }
+
+                                    div.content {
+                                        padding: 0 20px 15px 20px;
+                                        //background-color: #fafafa;
+
+                                        h4 {
+                                            font-size: @baseFontSize;
+
+                                            &:first-child {
+                                                margin-top: 0;
+                                            }
+                                        }
+                                        
+                                        table {
+                                            /*border: 1px solid @borderColor;
+                                            border-collapse: collapse;*/
+                                            text-align: left;
+                                            .box-shadow(~"2px 3px 2px #efefef, -2px 3px 2px #efefef");
+
+                                            thead {
+                                                background-color: #f0f0f0;
+
+                                                th {
+                                                    .box-shadow(0px 3px 3px lighten(@borderColor, 10%));
+                                                }
+                                            }
+
+                                            tbody tr {
+                                                &:nth-child(odd) {
+                                                    background-color: transparent;
+                                                }
+                                                &:nth-child(even) {
+                                                    background-color: white;
+                                                }
+                                            }
+
+                                            th, td {
+                                                border: 1px solid @borderColor;
+                                                padding: 10px 20px;
+                                            }
+
+                                            td {
+                                                vertical-align: top;
+
+                                                p, input, label {
+                                                    margin: 0;
+                                                }
+
+                                                input {
+                                                    margin-top: -4px;
+                                                }
+                                            }
+
+                                            textarea, select, input {
+                                                width: 100%;
+                                            }
+
+                                            ul.signature-nav {
+                                                .btn-group;
+                                                margin-bottom: 10px;
+                                                overflow: hidden;
+                                                width: 100%;
+
+                                                li {
+                                                    margin: 0;
+                                                    border-right: none;
+                                                    display: inline-block;
+                                                    width: 50%;
+
+                                                    a {
+                                                        .btn;
+                                                        .btn-small;
+                                                        .border-radius(0);
+                                                        border-right: transparent;
+                                                        color: @grayDark;
+                                                        display: block;
+                                                        width: 100%;
+                                                        .box-sizing(border-box);
+
+                                                        &:focus {
+                                                            outline: none;
+                                                        }
+
+                                                        &:active, &.selected {
+                                                            background-image: none;
+                                                            outline: 0;
+                                                            color: @primaryColor;
+                                                            .box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
+                                                        }
+                                                    }
+
+                                                    &:first-child {
+                                                        a {
+                                                            .border-left-radius(@borderRadiusSmall);
+                                                        }
+                                                    }
+
+                                                    &:last-child {
+
+                                                        a {
+                                                            .btn;
+                                                            .btn-small;
+                                                            .border-left-radius(0);
+                                                            display: block;
+                                                            //.border-right-radius(@baseBorderRadius);
+
+                                                            &:focus {
+                                                                outline: none;
+                                                            }
+
+                                                            &:active, &.selected {
+                                                                background-image: none;
+                                                                outline: 0;
+                                                                color: @primaryColor;
+                                                                .box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            div.parameter-content-type {
+                                                div {
+                                                    label {
+                                                        display: inline-block;
+                                                        float: left;
+                                                        width: 45%;
+                                                        margin-top: 4px;
+                                                    }
+                                                    select {
+                                                        display: inline-block;
+                                                        margin: 0;
+                                                        float: left;
+                                                        width: 55%;
+                                                    }
+                                                }
+                                            }
+
+                                            .strong, .propName {
+                                                font-weight: bold;
+                                            }
+
+                                            .propType {
+                                                color: @primaryColor;
+                                            }
+                                            
+                                            div.signature-container {
+                                                padding: 0 10px;
+                                                clear: both;
+                                                
+                                                div.description div {
+                                                    margin-left: 10px;
+                                                    padding: 3px 0;
+                                                }
+                                            }
+
+                                            strong span.markdown {
+                                                font-weight: normal;
+                                            }
+
+                                        }
+
+                                        form.sandbox div.sandbox_header {
+                                            margin-top: 15px;
+                                            input.submit {
+                                                .btn;
+                                                .btn-small;
+                                                .btn-primary;
+                                            }
+
+                                            a.response_hider {
+                                                .btn;
+                                                .btn-small;
+                                            }
+                                        }
+
+                                        div.snippet {
+                                            cursor: pointer;
+                                        }
+                                    }
+
+                                    &.expanded {
+                                        background-color: #fafafa;
+
+                                        div.heading h3 span.path a {
+                                            font-weight: bold;
+                                        }
+                                    }
+
+                                    &:hover {
+                                        div.heading h3 span.path a {
+                                            font-weight: bold;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer {
+            margin-top: 20px;
+
+            h4 {
+                font-weight: normal;
+                font-size: 15px;
+            }
+        }
+
+        pre {
+            background-color: transparent;
+        }
+    }
+
+    .API-resource {
+        border-bottom: 1px dotted @borderColor;
+        padding: 20px 0;
+        height: 28px;
+
+        h1 {
+            float: left;
+            font-size: 25px;
+            margin-top: 0;
+            line-height: 25px;
+        }
+
+        select {
+            float: right;
+            width: auto;
+            border: 1px solid #c7c7c7;
+            .border-radius(@baseBorderRadius);
+            background: url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackDownArrow.gif") no-repeat 94% 50%;
+            .box-shadow(~"inset 0 -4px 4px #f1f1f1");
+        }
+    }
+}
+
+select {
+    overflow: hidden;
+    background: url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/GrayDownArrow.gif") no-repeat center right;
+    .appear();
+    outline: none;
+    padding: 0px 15px;
+    line-height: 26px;
+
+    &:focus, &:active, option, option:focus, option:active {
+        outline: none;
+        outline-offset: 0;
+    }
+    option {
+        outline: none;
+        outline-offset: 0;
+
+        &:active, &:hover, &:focus {
+            outline: none;
+            outline-offset: 0;
+        }
+    }
+}
+
+
+/* HIGHLIGHT */
+
+/* Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org> */
+
+.swagger-section {
+
+    pre code {
+        display: block;
+    }
+
+
+    pre .string,
+    pre .title,
+    pre .constant,
+    pre .parent,
+    pre .tag .value,
+    pre .rules .value,
+    pre .rules .value .number,
+    pre .preprocessor,
+    pre .ruby .symbol,
+    pre .ruby .symbol .string,
+    pre .aggregate,
+    pre .template_tag,
+    pre .django .variable,
+    pre .smalltalk .class,
+    pre .addition,
+    pre .flow,
+    pre .stream,
+    pre .bash .variable,
+    pre .apache .tag,
+    pre .apache .cbracket,
+    pre .tex .command,
+    pre .tex .special,
+    pre .erlang_repl .function_or_atom,
+    pre .markdown .header {
+        color: #cc0000;
+    }
+
+    pre .comment,
+    pre .annotation,
+    pre .template_comment,
+    pre .diff .header,
+    pre .chunk,
+    pre .markdown .blockquote {
+        color: #888;
+    }
+
+    pre .number,
+    pre .date,
+    pre .regexp,
+    pre .literal,
+    pre .smalltalk .symbol,
+    pre .smalltalk .char,
+    pre .go .constant,
+    pre .change,
+    pre .markdown .bullet,
+    pre .markdown .link_url {
+        color: @primaryColor;
+    }
+
+    pre .label,
+    pre .javadoc,
+    pre .ruby .string,
+    pre .decorator,
+    pre .filter .argument,
+    pre .localvars,
+    pre .array,
+    pre .attr_selector,
+    pre .important,
+    pre .pseudo,
+    pre .pi,
+    pre .doctype,
+    pre .deletion,
+    pre .envvar,
+    pre .shebang,
+    pre .apache .sqbracket,
+    pre .nginx .built_in,
+    pre .tex .formula,
+    pre .erlang_repl .reserved,
+    pre .prompt,
+    pre .markdown .link_label,
+    pre .vhdl .attribute,
+    pre .clojure .attribute,
+    pre .coffeescript .property {
+        color: #88F
+    }
+
+    pre .keyword,
+    pre .id,
+    pre .phpdoc,
+    pre .title,
+    pre .built_in,
+    pre .aggregate,
+    pre .css .tag,
+    pre .javadoctag,
+    pre .phpdoc,
+    pre .yardoctag,
+    pre .smalltalk .class,
+    pre .winutils,
+    pre .bash .variable,
+    pre .apache .tag,
+    pre .go .typename,
+    pre .tex .command,
+    pre .markdown .strong,
+    pre .request,
+    pre .status {
+        font-weight: bold;
+    }
+
+    pre .markdown .emphasis {
+        font-style: italic;
+    }
+
+    pre .nginx .built_in {
+        font-weight: normal;
+    }
+
+    pre .coffeescript .javascript,
+    pre .javascript .xml,
+    pre .tex .formula,
+    pre .xml .javascript,
+    pre .xml .vbscript,
+    pre .xml .css,
+    pre .xml .cdata {
+        opacity: 0.5;
     }
 
 }

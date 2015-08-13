@@ -39,7 +39,7 @@ public class Bootstrap extends HttpServlet {
         beanConfig.setSchemes(schemes);
 		beanConfig.setTitle("Calendar Rest API");
 		beanConfig.setDescription("Here is a documentation about (and a way to test) eXo Platform Calendar REST API");
-		//beanConfig.setContact("<a href='mailto:tgigant@exoplatform.com'>Thibault Gigant</a>");
+		beanConfig.setContact("Thibault Gigant");
 		beanConfig.setBasePath("/rest-api-doc-webapp");
 		beanConfig.setLicense("Apache 2.0");
 		beanConfig.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
