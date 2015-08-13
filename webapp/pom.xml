@@ -81,11 +81,11 @@
                 <version>4.3.x-soc-social-rest-api-SNAPSHOT</version>
             </dependency>-->
             <!-- Test API (junk to remove) -->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.exoplatform.tgigant</groupId>
                 <artifactId>swagger-lib-test</artifactId>
                 <version>1.0-SNAPSHOT</version>
-            </dependency>
+            </dependency>-->
 
         </dependencies>
 
