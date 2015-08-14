@@ -16,11 +16,10 @@ import javax.ws.rs.core.Application;
 
 
 @ApplicationPath("/api")
-@Api(value = "/api", description = "api de test")
+@Api(value = "/api")
 public class SampleApplication extends Application {
 	@ApiOperation(
-			value = "Returns a set of classes",
-			notes = "This is a test, does it work?")
+			value = "Returns a set of classes")
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new HashSet();
@@ -29,8 +28,6 @@ public class SampleApplication extends Application {
         //resources.add(SecondResource.class);
         //...
 
-        //resources.add(org.exoplatform.calendar.ws.CalendarRestApi.class);
-        //resources.add(JacksonJsonProvider.class);
         resources.add(CustomApiListingResource.class);
         resources.add(SwaggerSerializers.class);
 

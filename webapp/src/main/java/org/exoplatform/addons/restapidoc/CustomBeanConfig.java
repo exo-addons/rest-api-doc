@@ -27,7 +27,7 @@ public class CustomBeanConfig extends BeanConfig {
     public void setScan(boolean shouldScan) {
         Set<Class<?>> classes = classes();
 
-        String sep = " ################## ";
+//        String sep = " ################## ";
 ////        System.out.println(sep + "Entering setScan" + sep);
 //        for (Class<?> cls : classes) {
 ////            System.out.println("Final output class: " + cls.getCanonicalName());
@@ -99,18 +99,18 @@ public class CustomBeanConfig extends BeanConfig {
         reader.getSwagger().setInfo(getInfo());
         final Reflections reflections = new Reflections(config);
 //        System.out.println("###### URLs in config of reflections:");
-        for (URL url : reflections.getConfiguration().getUrls()) {
+//        for (URL url : reflections.getConfiguration().getUrls()) {
 //            System.out.println(url.toString());
-        }
+//        }
         Set<Class<?>> classes = reflections.getTypesAnnotatedWith(Api.class);
-        for (Class<?> cls : classes) {
+//        for (Class<?> cls : classes) {
 //            System.out.println("class found with annotations with @Api annotations: " + cls.getCanonicalName());
-        }
+//        }
         classes.addAll(reflections.getTypesAnnotatedWith(javax.ws.rs.Path.class));
         Set<Class<?>> output = new HashSet<Class<?>>();
-        for (Class<?> cls : classes) {
+//        for (Class<?> cls : classes) {
 //            System.out.println("class found with annotations with @Api + @Path annotations : "+cls.getCanonicalName());
-        }
+//        }
         for (Class<?> cls : classes) {
 //            System.out.println("checking class: "+cls.getCanonicalName());
             if (allowAllPackages) {
@@ -125,9 +125,9 @@ public class CustomBeanConfig extends BeanConfig {
                 }
             }
         }
-        for (Class<?> cls : output) {
+//        for (Class<?> cls : output) {
 //            System.out.println("Final output class: " + cls.getCanonicalName());
-        }
+//        }
         return output;
     }
 

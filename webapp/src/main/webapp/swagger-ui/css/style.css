@@ -25,9 +25,9 @@
   *background-color: #e6e6e6;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  border: 1px solid #cfcfcf;
+  border: 1px solid #cccccc;
   *border: 0;
-  border-bottom-color: #b6b6b6;
+  border-bottom-color: #b3b3b3;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -644,45 +644,10 @@ input[type="submit"].btn.btn-mini {
   color: #333333;
   font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.swagger-section #message-bar {
-  margin-top: 51px;
-}
-.swagger-section #situation-bar {
-  border-bottom: 1px dotted #cfcfcf;
-}
-.swagger-section #situation-bar p {
-  padding: 20px 0 10px 0;
-}
-.swagger-section #situation-bar p span {
-  display: inline-block;
-}
-.swagger-section #situation-bar p span a {
-  color: inherit;
-}
-.swagger-section #situation-bar p span.rightArrow {
-  width: 16px;
-  background: transparent url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackNextArrow.gif") no-repeat center right;
-  -webkit-background-size: 120%;
-  -moz-background-size: 120%;
-  -o-background-size: 120%;
-  background-size: 120%;
-}
-.swagger-section #situation-bar p span.current-resource {
-  color: #999999;
-  font-weight: bold;
-}
 .swagger-section .info {
   margin: 20px 0;
 }
 .swagger-section .info_title {
-  /*font-size: @baseFontSize * 2.75;
-        margin: @baseLineHeight 0;
-        font-family: @headingsFontFamily;
-        font-weight: @headingsFontWeight;
-        line-height: @baseLineHeight;
-        height: @baseLineHeight * 2;
-        color: @headingsColor;
-        text-rendering: optimizelegibility; // Fix the character spacing for headings*/
   color: #345f8f;
   font-size: 21px;
   font-weight: bold;
@@ -698,6 +663,31 @@ input[type="submit"].btn.btn-mini {
 .swagger-section .swagger-ui-wrap {
   margin: 0 20px;
   clear: both;
+}
+.swagger-section .swagger-ui-wrap#situation-bar {
+  margin-top: 51px;
+  border-bottom: 1px dotted #cfcfcf;
+}
+.swagger-section .swagger-ui-wrap#situation-bar p {
+  padding: 20px 0 10px 0;
+}
+.swagger-section .swagger-ui-wrap#situation-bar p span {
+  display: inline-block;
+}
+.swagger-section .swagger-ui-wrap#situation-bar p span a {
+  color: inherit;
+}
+.swagger-section .swagger-ui-wrap#situation-bar p span.rightArrow {
+  width: 16px;
+  background: transparent url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackNextArrow.gif") no-repeat center right;
+  -webkit-background-size: 120%;
+  -moz-background-size: 120%;
+  -o-background-size: 120%;
+  background-size: 120%;
+}
+.swagger-section .swagger-ui-wrap#situation-bar p span.current-resource {
+  color: #999999;
+  font-weight: bold;
 }
 .swagger-section .swagger-ui-wrap a {
   text-decoration: none;
@@ -777,7 +767,7 @@ input[type="submit"].btn.btn-mini {
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading {
   overflow: hidden;
   display: block;
-  height: 44px;
+  cursor: pointer;
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 {
   display: block;
@@ -790,9 +780,6 @@ input[type="submit"].btn.btn-mini {
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span.path a {
   color: #2f5e92;
-}
-.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span.path a:hover {
-  font-weight: bold;
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.heading h3 span.http_method {
   width: 80px;
@@ -857,6 +844,7 @@ input[type="submit"].btn.btn-mini {
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content {
   padding: 0 20px 15px 20px;
+  background-color: #fafafa;
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content h4 {
   font-size: 13px;
@@ -865,8 +853,6 @@ input[type="submit"].btn.btn-mini {
   margin-top: 0;
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table {
-  /*border: 1px solid @borderColor;
-                                            border-collapse: collapse;*/
   text-align: left;
   -webkit-box-shadow: 2px 3px 2px #efefef, -2px 3px 2px #efefef;
   -moz-box-shadow: 2px 3px 2px #efefef, -2px 3px 2px #efefef;
@@ -901,6 +887,9 @@ input[type="submit"].btn.btn-mini {
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table td input {
   margin-top: -4px;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table td div.snippet {
+  cursor: pointer;
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table textarea,
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table select,
@@ -956,9 +945,9 @@ input[type="submit"].btn.btn-mini {
   *background-color: #e6e6e6;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  border: 1px solid #cfcfcf;
+  border: 1px solid #cccccc;
   *border: 0;
-  border-bottom-color: #b6b6b6;
+  border-bottom-color: #b3b3b3;
   *margin-left: .3em;
   -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
@@ -1078,9 +1067,9 @@ input[type="submit"].btn.btn-mini {
   *background-color: #e6e6e6;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  border: 1px solid #cfcfcf;
+  border: 1px solid #cccccc;
   *border: 0;
-  border-bottom-color: #b6b6b6;
+  border-bottom-color: #b3b3b3;
   *margin-left: .3em;
   -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
@@ -1160,16 +1149,17 @@ input[type="submit"].btn.btn-mini {
   -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
   box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
 }
-.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table div.parameter-content-type div label {
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table div.parameter-content-type div label,
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table div.parameter-content-type div select {
   display: inline-block;
   float: left;
+}
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table div.parameter-content-type div label {
   width: 45%;
   margin-top: 4px;
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table div.parameter-content-type div select {
-  display: inline-block;
   margin: 0;
-  float: left;
   width: 55%;
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content table .strong,
@@ -1217,9 +1207,9 @@ input[type="submit"].btn.btn-mini {
   border-color: #e6e6e6 #e6e6e6 #bfbfbf;
   *background-color: #e6e6e6;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-  border: 1px solid #cfcfcf;
+  border: 1px solid #cccccc;
   *border: 0;
-  border-bottom-color: #b6b6b6;
+  border-bottom-color: #b3b3b3;
   *margin-left: .3em;
   -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
@@ -1340,9 +1330,9 @@ input[type="submit"].btn.btn-mini {
   *background-color: #e6e6e6;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  border: 1px solid #cfcfcf;
+  border: 1px solid #cccccc;
   *border: 0;
-  border-bottom-color: #b6b6b6;
+  border-bottom-color: #b3b3b3;
   *margin-left: .3em;
   -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
@@ -1403,8 +1393,8 @@ input[type="submit"].btn.btn-mini {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content div.snippet {
-  cursor: pointer;
+.swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation div.content div.response {
+  padding: 10px 10px 0 10px;
 }
 .swagger-section .swagger-ui-wrap .container ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.expanded {
   background-color: #fafafa;
@@ -1421,6 +1411,9 @@ input[type="submit"].btn.btn-mini {
 .swagger-section .swagger-ui-wrap .footer h4 {
   font-weight: normal;
   font-size: 15px;
+}
+.swagger-section .swagger-ui-wrap .footer h4 span > a > img {
+  display: none;
 }
 .swagger-section .swagger-ui-wrap pre {
   background-color: transparent;
@@ -1439,18 +1432,17 @@ input[type="submit"].btn.btn-mini {
 .swagger-section .API-resource select {
   float: right;
   width: auto;
-  border: 1px solid #c7c7c7;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background: url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackDownArrow.gif") no-repeat 94% 50%;
+  background: #ffffff url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackDownArrow.gif") no-repeat 94% 50%;
   -webkit-box-shadow: inset 0 -4px 4px #f1f1f1;
   -moz-box-shadow: inset 0 -4px 4px #f1f1f1;
   box-shadow: inset 0 -4px 4px #f1f1f1;
 }
 select {
   overflow: hidden;
-  background: url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/GrayDownArrow.gif") no-repeat center right;
+  background: #ffffff url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/GrayDownArrow.gif") no-repeat center right;
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;

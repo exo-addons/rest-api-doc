@@ -1,8 +1,5 @@
 package org.exoplatform.addons.restapidoc;
 
-//import io.swagger.jaxrs.config.BeanConfig;
-//import io.swagger.models.*;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -20,18 +17,6 @@ public class Bootstrap extends HttpServlet {
 
 	@Override
     public void init(ServletConfig config) throws ServletException {
-		//super.init(config);
-
-
-		/*Info info = new Info()
-				.title("Calendar Rest API")
-				.description("Here is a documentation about (and a way to test) eXo Platform Calendar REST API")
-				.termsOfService("http://localhost:8080/terms/")
-				.contact(new Contact()
-						.email("tgigant@exoplatform.org"))
-				.license(new License()
-						.name("Apache 2.0")
-						.url("http://www.apache.org/licenses/LICENSE-2.0.html"));*/
         String[] schemes = new String[] {"http","https"};
 
 		CustomBeanConfig beanConfig = new CustomBeanConfig();
@@ -40,12 +25,10 @@ public class Bootstrap extends HttpServlet {
 		beanConfig.setTitle("Calendar Rest API");
 		beanConfig.setDescription("Here is a documentation about (and a way to test) eXo Platform Calendar REST API");
 		beanConfig.setContact("Thibault Gigant");
-		beanConfig.setBasePath("/rest-api-doc-webapp");
+		beanConfig.setBasePath("/rest/private");
 		beanConfig.setLicense("Apache 2.0");
 		beanConfig.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
-        //beanConfig.setResourcePackage("org.exoplatform.calendar.ws,org.exoplatform.social.rest.api");
 		beanConfig.setResourcePackage("org.exoplatform");
-		//beanConfig.setHost("http://localhost:8080");
         beanConfig.setScan(true);
 
 

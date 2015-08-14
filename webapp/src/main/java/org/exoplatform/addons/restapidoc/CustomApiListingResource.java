@@ -33,7 +33,7 @@ public class CustomApiListingResource extends ApiListingResource {
         Swagger swagger = null;
         Scanner scanner = ScannerFactory.getScanner();
         LOGGER.debug("using scanner " + scanner);
-        String sep = " ###################### ";
+        //String sep = " ###################### ";
 
 //        System.out.println(sep + "Entering scan in CustomApiListingResource" + sep);
 //        System.out.println(sep + "Scanner ="+scanner);
@@ -57,9 +57,9 @@ public class CustomApiListingResource extends ApiListingResource {
             } else {
                 classes = scanner.classes();
 //                System.out.println(sep + "Classes scanned" + sep);
-                for (Class<?> cls : classes) {
+//                for (Class<?> cls : classes) {
 //                    System.out.println(cls.getCanonicalName());
-                }
+//                }
 //                System.out.println(sep + "End classes scanned" + sep);
             }
             if (classes != null) {
@@ -67,9 +67,9 @@ public class CustomApiListingResource extends ApiListingResource {
 
                 // Display
 //                System.out.println(sep + "Classes to be read" + sep);
-                for (Class<?> cls : classes) {
+//                for (Class<?> cls : classes) {
 //                    System.out.println(cls.getCanonicalName());
-                }
+//                }
 //                System.out.println(sep+"Before reading classes"+sep);
 //                System.out.println("Swagger : "+swagger.getTags());
 //                System.out.println(sep+"Reading classes"+sep);

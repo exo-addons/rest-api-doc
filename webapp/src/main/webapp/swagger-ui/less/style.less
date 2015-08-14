@@ -3,12 +3,26 @@
 @import "mixins.less";
 @import "../bootstrap/less/button-groups.less";
 
-// Additional variables
+//////////////////////////
+// Additional variables //
+//////////////////////////
+
+// Dimensions
 @navbarHeight: 51px;
 @headingsHeight: 40px;
+@arrowSize: 16px;
+
+// Colors
 @hoverColor: #f8f8f8;
 @infoTitleColor: #345f8f;
-@borderColor: #cfcfcf;
+@separatorsColor: #cfcfcf;
+@getButtonColor: #215ab2;
+@putButtonColor: #fd8c40;
+@postButtonColor: #39c522;
+@deleteButtonColor: #cc0000;
+@operationBackgroundColor: #fafafa;
+
+// Mixin for appearance
 .appear(@value : none) {
     -webkit-appearance: @value;
     -moz-appearance: @value;
@@ -20,51 +34,11 @@
     color: @grayDark;
     font: @sansFontFamily;
 
-    #message-bar {
-        margin-top: @navbarHeight;
-    }
-
-    #situation-bar {
-        border-bottom: 1px dotted @borderColor;
-        //min-height: 60px;
-
-        p {
-            padding: 20px 0 10px 0;
-
-            span {
-                display: inline-block;
-
-                a {
-                    color: inherit;
-                }
-
-                &.rightArrow {
-                    width: 16px;
-                    background: transparent url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackNextArrow.gif") no-repeat center right;
-                    .background-size(120%);
-                }
-
-                &.current-resource {
-                    color: @grayLight;
-                    font-weight: bold;
-                }
-            }
-        }
-    }
-
     .info {
         margin: 20px 0;
     }
 
     .info_title {
-        /*font-size: @baseFontSize * 2.75;
-        margin: @baseLineHeight 0;
-        font-family: @headingsFontFamily;
-        font-weight: @headingsFontWeight;
-        line-height: @baseLineHeight;
-        height: @baseLineHeight * 2;
-        color: @headingsColor;
-        text-rendering: optimizelegibility; // Fix the character spacing for headings*/
         color: @infoTitleColor;
         font-size: 21px;
         font-weight: bold;
@@ -83,6 +57,35 @@
     .swagger-ui-wrap {
         margin: 0 @gutterSizeXLarge;
         clear: both;
+
+
+        &#situation-bar {
+            margin-top: @navbarHeight;
+            border-bottom: 1px dotted @separatorsColor;
+
+            p {
+                padding: 20px 0 10px 0;
+
+                span {
+                    display: inline-block;
+
+                    a {
+                        color: inherit;
+                    }
+
+                    &.rightArrow {
+                        width: @arrowSize;
+                        background: transparent url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackNextArrow.gif") no-repeat center right;
+                        .background-size(120%);
+                    }
+
+                    &.current-resource {
+                        color: @grayLight;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
 
         a {
             text-decoration: none;
@@ -174,7 +177,7 @@
                                     div.heading {
                                         overflow: hidden;
                                         display: block;
-                                        height: 44px;
+                                        cursor: pointer;
 
                                         h3 {
                                             display: block;
@@ -187,10 +190,6 @@
                                             span.path {
                                                 a {
                                                     color: @primaryColor;
-
-                                                    &:hover {
-                                                        font-weight: bold;
-                                                    }
                                                 }
                                             }
                                             span.http_method {
@@ -219,11 +218,9 @@
                                         ul.options {
                                             overflow: hidden;
                                             display: block;
-                                            //clear: none;
                                             float: right;
                                             li {
                                                 float: left;
-                                                //clear: none;
                                                 margin: 0;
                                                 padding: 2px 0;
                                                 vertical-align: middle;
@@ -242,27 +239,27 @@
                                         }
 
                                         &:hover, &:focus, &:active {
-                                            background-color: #fafafa;
+                                            background-color: @operationBackgroundColor;
                                         }
                                     }
 
-                                    // Colors of the buttons
+                                    // Coloring the method buttons
                                     &.get div.heading h3 span.http_method a {
-                                        background-color: #215ab2;
+                                        background-color: @getButtonColor;
                                     }
                                     &.delete div.heading h3 span.http_method a {
-                                        background-color: #cc0000;
+                                        background-color: @deleteButtonColor;
                                     }
                                     &.put div.heading h3 span.http_method a {
-                                        background-color: #fd8c40;
+                                        background-color: @putButtonColor;
                                     }
                                     &.post div.heading h3 span.http_method a {
-                                        background-color: #39c522;
+                                        background-color: @postButtonColor;
                                     }
 
                                     div.content {
                                         padding: 0 20px 15px 20px;
-                                        //background-color: #fafafa;
+                                        background-color: @operationBackgroundColor;
 
                                         h4 {
                                             font-size: @baseFontSize;
@@ -273,16 +270,14 @@
                                         }
                                         
                                         table {
-                                            /*border: 1px solid @borderColor;
-                                            border-collapse: collapse;*/
                                             text-align: left;
                                             .box-shadow(~"2px 3px 2px #efefef, -2px 3px 2px #efefef");
 
                                             thead {
-                                                background-color: #f0f0f0;
+                                                background-color: @primaryBackground;
 
                                                 th {
-                                                    .box-shadow(0px 3px 3px lighten(@borderColor, 10%));
+                                                    .box-shadow(0px 3px 3px lighten(@separatorsColor, 10%));
                                                 }
                                             }
 
@@ -296,7 +291,7 @@
                                             }
 
                                             th, td {
-                                                border: 1px solid @borderColor;
+                                                border: 1px solid @separatorsColor;
                                                 padding: 10px 20px;
                                             }
 
@@ -309,6 +304,10 @@
 
                                                 input {
                                                     margin-top: -4px;
+                                                }
+
+                                                div.snippet {
+                                                    cursor: pointer;
                                                 }
                                             }
 
@@ -363,7 +362,6 @@
                                                             .btn-small;
                                                             .border-left-radius(0);
                                                             display: block;
-                                                            //.border-right-radius(@baseBorderRadius);
 
                                                             &:focus {
                                                                 outline: none;
@@ -382,16 +380,17 @@
 
                                             div.parameter-content-type {
                                                 div {
-                                                    label {
+                                                    label, select {
                                                         display: inline-block;
                                                         float: left;
+                                                    }
+
+                                                    label {
                                                         width: 45%;
                                                         margin-top: 4px;
                                                     }
                                                     select {
-                                                        display: inline-block;
                                                         margin: 0;
-                                                        float: left;
                                                         width: 55%;
                                                     }
                                                 }
@@ -435,13 +434,14 @@
                                             }
                                         }
 
-                                        div.snippet {
-                                            cursor: pointer;
+                                        div.response {
+                                            padding: 10px 10px 0 10px;
                                         }
+
                                     }
 
                                     &.expanded {
-                                        background-color: #fafafa;
+                                        background-color: @operationBackgroundColor;
 
                                         div.heading h3 span.path a {
                                             font-weight: bold;
@@ -467,6 +467,10 @@
             h4 {
                 font-weight: normal;
                 font-size: 15px;
+
+                span > a > img {
+                    display: none;
+                }
             }
         }
 
@@ -476,7 +480,7 @@
     }
 
     .API-resource {
-        border-bottom: 1px dotted @borderColor;
+        border-bottom: 1px dotted @separatorsColor;
         padding: 20px 0;
         height: 28px;
 
@@ -490,9 +494,8 @@
         select {
             float: right;
             width: auto;
-            border: 1px solid #c7c7c7;
             .border-radius(@baseBorderRadius);
-            background: url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackDownArrow.gif") no-repeat 94% 50%;
+            background: white url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/BlackDownArrow.gif") no-repeat 94% 50%;
             .box-shadow(~"inset 0 -4px 4px #f1f1f1");
         }
     }
@@ -500,7 +503,7 @@
 
 select {
     overflow: hidden;
-    background: url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/GrayDownArrow.gif") no-repeat center right;
+    background: white url("/eXoSkin/skin/images/themes/default/Icons/skinIcons/16x16/GrayDownArrow.gif") no-repeat center right;
     .appear();
     outline: none;
     padding: 0px 15px;
@@ -557,7 +560,7 @@ select {
     pre .tex .special,
     pre .erlang_repl .function_or_atom,
     pre .markdown .header {
-        color: #cc0000;
+        color: @deleteButtonColor;
     }
 
     pre .comment,

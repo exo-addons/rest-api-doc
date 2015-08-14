@@ -43,7 +43,7 @@ public class CustomReader extends Reader {
     private static final String SUCCESSFUL_OPERATION = "successful operation";
     private static final Set<Class<? extends Annotation>> FIELD_ANNOTATIONS;
     //private Swagger swagger = new Swagger();
-    String sep = " ###################### ";
+//    String sep = " ###################### ";
 
     public CustomReader(Swagger swagger, ReaderConfig config) {
         super(swagger, config);
